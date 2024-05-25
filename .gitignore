@@ -1,0 +1,160 @@
+# Build directories
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.userprefs
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.Trash-*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.sublime-workspace
+
+# Rider (JetBrains IDE)
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio for Mac
+.vscode/
+.idea/
+*.suo
+*.userprefs
+*.csproj.user
+*.pidb
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+.idea_modules/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CTestTestfile.cmake
+cmake_install.cmake
+CMakeLists.txt.user
+
+# Azure DevOps
+# User-specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.userprefs
+
+# Crash reports
+crash-reports/
+
+# Build directories
+bin/
+obj/
+
+# Local NuGet packages
+*.nupkg
+*.snupkg
+
+# Node modules
+node_modules/
+
+# Yarn
+.pnp/
+.pnp.js
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# MAUI specific directories
+AppPackages/
+app_packages/
+AppPackagesOffline/
+app_packages_offline/
+Packages/
+
+# Resharper
+_ReSharper.Caches/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Others
+*.rsuser
+*.resharper
+*_ReSharper.*
+*.DotSettings.user
+.vscode/*
+*.code-workspace
+
+# Auto-generated UI test projects
+UITestProject.csproj
+UITest1.cs
+UITest1Page.xaml
+UITest1Page.xaml.cs
+UITest1Page.cs
+TestResults/
+*.testsettings
+*.vsmdi
+*.vsix
+*.vspx
+*.trx
+TestResult.xml
+TestResults
+
+# Web application artifacts
+.bundle/
+.deployment/
+.packages/
+
+# Entity framework
+*.edmx.diagram
+*.edmx
+*.edmx.sql
+*.tt
+
+# Office Tooling
+.publish.xml
+_project.load.txt
+RegenProject.txt
+
+# Others
+.Spotlight-V100
+.Trashes

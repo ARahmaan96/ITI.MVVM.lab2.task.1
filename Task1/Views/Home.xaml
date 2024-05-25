@@ -1,0 +1,259 @@
+﻿<Window
+    x:Class="Task1.Views.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Home"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style x:Key="TextBlockForm" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style x:Key="TextBoxForm" TargetType="TextBox">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="7">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+
+    <Window.Background>
+        <VisualBrush>
+            <VisualBrush.Visual>
+                <StackPanel Background="#fff">
+                    <MediaElement
+                        Name="BackgroundVideo"
+                        Width="800"
+                        Height="450"
+                        LoadedBehavior="Manual"
+                        MediaEnded="BackgroundVideo_MediaEnded"
+                        Opacity="1"
+                        Source="assets\images\bgVideo.mp4"
+                        Stretch="Fill" />
+                </StackPanel>
+            </VisualBrush.Visual>
+
+        </VisualBrush>
+    </Window.Background>
+
+    <Grid Background="#0000">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockForm}"
+                    Text="Name:" />
+                <TextBox Style="{StaticResource TextBoxForm}" Text="{Binding NewStudentName}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockForm}"
+                    Text="Email:" />
+                <TextBox Style="{StaticResource TextBoxForm}" Text="{Binding NewStudentEmail}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Margin="5"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource TextBlockForm}"
+                    Text="Address:" />
+                <TextBox Style="{StaticResource TextBoxForm}" Text="{Binding NewStudentAddress}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                <Button
+                    Width="75"
+                    Margin="5"
+                    Command="{Binding ButtonCommand}"
+                    Content="{Binding ButtonContent}">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Padding" Value="10,5" />
+                            <Setter Property="Background" Value="#28a745" />
+                            <Setter Property="Foreground" Value="#fff" />
+                            <Setter Property="Cursor" Value="Hand" />
+
+                            <Setter Property="Margin" Value="5" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            Padding="{TemplateBinding Padding}"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="7">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+                <Button
+                    Width="75"
+                    Margin="5"
+                    Command="{Binding NewStudentCommand}"
+                    Content="Clear">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Padding" Value="10,5" />
+                            <Setter Property="Background" Value="#007bff" />
+                            <Setter Property="Foreground" Value="#fff" />
+                            <Setter Property="Cursor" Value="Hand" />
+
+                            <Setter Property="Margin" Value="5" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border
+                                            Padding="{TemplateBinding Padding}"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="7">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+
+        <DataGrid
+            Grid.Row="1"
+            Margin="10"
+            AutoGenerateColumns="False"
+            Background="#0000"
+            BorderThickness="0"
+            CanUserAddRows="False"
+            CanUserReorderColumns="False"
+            FontSize="17"
+            HeadersVisibility="Column"
+            HorizontalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            ItemsSource="{Binding Students}"
+            SelectedItem="{Binding SelectedStudent}"
+            SelectionMode="Single">
+
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="50"
+                    Binding="{Binding Id}"
+                    Header="ID"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Name}"
+                    Header="Name" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Email}"
+                    Header="Email" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Address}"
+                    Header="Address" />
+
+                <DataGridTemplateColumn Width="*" Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    Content="Delete">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Padding" Value="10,5" />
+                                            <Setter Property="Background" Value="#dc3545" />
+                                            <Setter Property="Foreground" Value="#fff" />
+                                            <Setter Property="Cursor" Value="Hand" />
+
+                                            <Setter Property="Margin" Value="5" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            Padding="{TemplateBinding Padding}"
+                                                            Background="{TemplateBinding Background}"
+                                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                                            CornerRadius="7">
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Padding" Value="5" />
+                    <Setter Property="Background" Value="#3ccc" />
+                    <Setter Property="Foreground" Value="#fff" />
+                    <Setter Property="FontWeight" Value="Bold" />
+
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+    </Grid>
+</Window>
